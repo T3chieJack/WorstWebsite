@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World's Worst Website</title>
+    <style>
+        body {
+            background-color: lime;
+            color: hotpink;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-shadow: 2px 2px 5px yellow;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .dancing-cat {
+            width: 200px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .marquee {
+            background: purple;
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+        }
+
+        .marquee div {
+            display: inline-block;
+            animation: scroll 10s linear infinite;
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        .cursor-trail {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .flashing-box {
+            width: 100px;
+            height: 100px;
+            background: cyan;
+            animation: flash 0.5s infinite alternate;
+            display: inline-block;
+            margin: 20px;
+        }
+
+        @keyframes flash {
+            from {
+                background: cyan;
+            }
+            to {
+                background: magenta;
+            }
+        }
+
+        .rotating-text {
+            font-size: 30px;
+            color: blue;
+            animation: rotateText 3s infinite;
+        }
+
+        @keyframes rotateText {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(180deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .jumping-image {
+            width: 150px;
+            animation: jump 1s infinite;
+        }
+
+        @keyframes jump {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the World's Worst Website!</h1>
+    <div class="marquee"><div>Enjoy the chaos!!! ✨✨✨</div></div>
+    <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Dancing Cat" class="dancing-cat">
+    <div class="flashing-box"></div>
+    <div class="flashing-box"></div>
+    <p class="rotating-text">This text spins for no reason!</p>
+    <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="Jumping Dog" class="jumping-image">
+    <script>
+        // Add cursor trail
+        document.addEventListener('mousemove', (e) => {
+            const trail = document.createElement('div');
+            trail.className = 'cursor-trail';
+            document.body.appendChild(trail);
+            trail.style.left = `${e.pageX}px`;
+            trail.style.top = `${e.pageY}px`;
+            setTimeout(() => trail.remove(), 500);
+        });
+
+        // Auto-play annoying MIDI sound
+        const audio = new Audio('https://www.mfiles.co.uk/mp3-downloads/mechanical-toy.mp3');
+        audio.loop = true;
+        audio.play();
+
+        // Endless pop-ups
+        setInterval(() => {
+            alert('You are visiting the best worst website!');
+        }, 10000);
+
+        // Randomly change background color
+        setInterval(() => {
+            const colors = ['lime', 'cyan', 'magenta', 'yellow', 'orange'];
+            document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        }, 2000);
+    </script>
+</body>
+</html>
